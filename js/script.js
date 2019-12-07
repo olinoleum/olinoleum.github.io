@@ -5,11 +5,11 @@ function playGame(argPlayerInput) {
 
     function getMoveImg(argMoveId){
         if(argMoveId == 1){
-            return '<img src="images/rock.png">';
+            return '<img src="images/rock.png" alt="rock">';
         } else if(argMoveId == 2){
-            return '<img src="images/paper.png">';
+            return '<img src="images/paper.png" alt="paper">';
         } else if(argMoveId == 3){
-            return '<img src="images/scissors.png">';
+            return '<img src="images/scissors.png" alt="scissors">';
         } else {
             printMessage('Nie znam ruchu o id ' + argMoveId + '.');
             return 'nieznany ruch';
