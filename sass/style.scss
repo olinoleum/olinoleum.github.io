@@ -1,0 +1,25 @@
+body {
+    height: 100vh;
+    display: flex;
+    background: #FFE59E;
+    font-size: 32px;
+    color: #1F2041;
+}
+.container {
+    margin: auto;
+    .arena {
+        height: 150px
+    }
+    #buttons {
+        text-align: center;
+        button {
+            background: #2B4162;
+            color: #fff;
+            font-size: 20px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+
+        }
+    }
+}
