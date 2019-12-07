@@ -3,13 +3,13 @@ function playGame(argPlayerInput) {
     clearMessages();
     let playerInput = argPlayerInput;
 
-    function getMoveName(argMoveId){
+    function getMoveImg(argMoveId){
         if(argMoveId == 1){
-            return 'kamień';
+            return '<img src="images/rock.png">';
         } else if(argMoveId == 2){
-            return 'papier';
+            return '<img src="images/paper.png">';
         } else if(argMoveId == 3){
-            return 'nożyce';
+            return '<img src="images/scissors.png">';
         } else {
             printMessage('Nie znam ruchu o id ' + argMoveId + '.');
             return 'nieznany ruch';
@@ -17,33 +17,38 @@ function playGame(argPlayerInput) {
     }
 
     function displayResult(argComputerMove, argPlayerMove){
-        if (argComputerMove == 'kamień' && argPlayerMove == 'papier'){
+        if (argComputerMove == 1 && argPlayerMove == 2){
+            playerPoints++;
             return 'Ty wygrywasz!';
-        } else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
+        } else if (argComputerMove == 2 && argPlayerMove == 3) {
+            playerPoints++;
             return 'Ty wygrywasz!';
-        } else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień') {
+        } else if (argComputerMove == 3 && argPlayerMove == 1) {
+            playerPoints++;
             return 'Ty wygrywasz!';
-        } else if (playerMove == 'nieznany ruch') {
-            return 'Co bez sensu wpisałeś :)';
         } else if (argComputerMove ==  argPlayerMove) {
             return '--- Remis --- ';
         } else {
+            computerPoints++;
             return 'Przegrałeś monsinior...';
         }
     }
-
+    
     let randomNumber = Math.floor(Math.random() * 3 + 1);
-    let computerMove = getMoveName(randomNumber);
 
-    printMessage('Mój ruch (komputera) to: ' + computerMove);
+    let computerMove = getMoveImg(randomNumber);
+    document.getElementById('computer-hand').innerHTML = computerMove;
 
-    let playerMove =  getMoveName(playerInput);
+    let playerMove =  getMoveImg(playerInput);
+    document.getElementById('player-hand').innerHTML = playerMove;
 
-    printMessage('Twój ruch człowieku to: ' + playerMove);
+    printMessage(displayResult(randomNumber, playerInput));
 
-    printMessage(displayResult(computerMove, playerMove));
-
+    document.getElementById('result').innerHTML = computerPoints + ' : ' + playerPoints;
 }
+
+let computerPoints = 0;
+let playerPoints = 0;
 
 document.getElementById('play-rock').addEventListener('click', function(){
     playGame(1);

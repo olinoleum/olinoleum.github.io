@@ -1,30 +1,124 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700&display=swap&subset=latin-ext");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   height: 100vh;
   display: -ms-flexbox;
   display: flex;
-  background: #FFE59E;
-  font-size: 32px;
-  color: #1F2041;
+  background: #1C76B8;
+}
+
+body, button {
+  font-size: 1.25rem;
+  color: #fff;
+  font-family: 'Roboto Mono', monospace;
+  outline: 0;
+}
+
+div {
+  margin: 10px;
 }
 
 .container {
   margin: auto;
+  width: 700px;
 }
 
-.container .arena {
-  height: 150px;
+.arena {
+  height: 200px;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.container #buttons {
+.arena #computer-hand {
+  -ms-flex: 1 1;
+      flex: 1 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  position: relative;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.arena #computer-hand img {
+  height: 90%;
+}
+
+.arena #computer-hand::before {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: 'Komputer';
+}
+
+.arena #player-hand {
+  -ms-flex: 1 1;
+      flex: 1 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  position: relative;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.arena #player-hand img {
+  height: 90%;
+  transform: scaleX(-1);
+}
+
+.arena #player-hand::before {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: 'Człowiek (Ty)';
+  white-space: nowrap;
+}
+
+.arena .pre-hand {
+  opacity: 0.5;
+}
+
+.arena .pre-hand .rgt {
+  transform: scaleX(-1);
+}
+
+#messages {
   text-align: center;
 }
 
-.container #buttons button {
-  background: #2B4162;
-  color: #fff;
-  font-size: 20px;
+#result {
+  background-color: #FFFF00;
+  color: #000;
+  text-align: center;
+}
+
+#buttons {
+  text-align: right;
+}
+
+#buttons button {
+  background: #3BACFF;
+  opacity: 0.8;
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+#buttons button:hover {
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */
