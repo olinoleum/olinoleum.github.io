@@ -43,7 +43,7 @@ div {
         }
         &::before {
             position: absolute;
-            top: -20px;
+            top: -30px;
             left: 50%;
             transform: translate(-50%, -50%);
             content: 'Komputer';
@@ -62,7 +62,7 @@ div {
         }
         &::before {
             position: absolute;
-            top: -20px;
+            top: -30px;
             left: 50%;
             transform: translate(-50%, -50%);
             content: 'Człowiek (Ty)';
@@ -99,5 +99,30 @@ div {
         &:hover {
             opacity: 1;
         }
+    }
+}
+
+@media (min-width: 376px) and (max-width: 1024px) {
+    body, button {
+        font-size: 3rem;
+    }
+    .arena {
+        height: 300px;
+    }
+    .container {
+        width: 95%;
+    }
+    #buttons {
+        text-align: center;
+        margin-top: 50px;
+        button {
+            padding: 30px 20px;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        width: 365px;
     }
 }
